@@ -19,8 +19,8 @@ struct ContentView: View {
         .init(systemImage: "moonphase.new.moon", description: "Empty.", buttonTitle: "Next"),
         .init(systemImage: "moonphase.waxing.crescent", description: "Still empty..", buttonTitle: "Next"),
         .init(systemImage: "moonphase.first.quarter", description: "Still empty...", buttonTitle: "Next"),
-        .init(systemImage: "moonphase.waxing.gibbous", description: "Empty still....", buttonTitle: "Next"),
-        .init(systemImage: "moonphase.full.moon", description: "Very empty.....", buttonTitle: "Return to the beginning")
+        .init(systemImage: "moonphase.waxing.gibbous", description: "Still empty....", buttonTitle: "Next"),
+        .init(systemImage: "moonphase.full.moon", description: "Still empty.....", buttonTitle: "Return to the beginning")
     ]
     
     @State private var currentPhase = 0
@@ -35,9 +35,7 @@ struct ContentView: View {
                 description: Text(step.description)
             )
             Button(step.buttonTitle) {
-                withAnimation {
-                    currentPhase = currentPhase < phases.count - 1 ? currentPhase + 1 : 0
-                }
+                currentPhase = currentPhase < phases.count - 1 ? currentPhase + 1 : 0
             }
          }
         .toolbar(.hidden, for: .navigationBar)
